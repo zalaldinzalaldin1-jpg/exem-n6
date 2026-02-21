@@ -26,7 +26,7 @@ class StudentController extends BaseController{
             await this.chekById(id);
             const { fullName } = req.body;
             if (fullName) {
-                const existStudent = await Student.findOne({ name });
+                const existStudent = await Student.findOne({ fullName });
                 if (existStudent && id !== existStudent._id) {
                     throw new ApiError('this student alredy exist', 409)
                 }

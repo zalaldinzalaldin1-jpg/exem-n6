@@ -26,9 +26,9 @@ class TeacherController extends BaseController{
             await this.chekById(id);
             const { fullName } = req.body;
             if (fullName) {
-                const existTeacher = await Teacher.findOne({ name });
+                const existTeacher = await Teacher.findOne({ fullName });
                 if (existTeacher && id !== existTeacher._id) {
-                    throw new ApiError('this group alredy exist', 409)
+                    throw new ApiError('this teacher alredy exist', 409)
                 }
             }
             const data = await Group.findByIdAndUpdate(id, req.body, { new: true });
