@@ -6,10 +6,10 @@ import teacher from '../validation/teacher.validation.js';
 const router = Router();
 
 router
-    .post('/', validate(teacher.create), controller.create)
+    .post('/', validate(teacher.create), controller.createTeacher)
     .get('/', controller.findAll)
     .get('/:id', controller.findById)
-    .patch('/:id', validate(teacher.update), controller.update)
+    .patch('/:id', validate(teacher.update), controller.updateTeacher)
     .delete('/:id', controller.remove)
 
 
